@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mango Voicemail - Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(180deg, #87CEEB 0%, #B0E6F5 50%, #FFF5E6 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cloud {
+            position: fixed;
+            background: white;
+            border-radius: 50px;
+            opacity: 0.7;
+            animation: floatCloud 20s infinite linear;
+            z-index: 0;
+        }
+        
+        .cloud:nth-child(1) {
+            width: 100px;
+            height: 40px;
+            top: 10%;
+            left: -100px;
+        }
+        
+        .cloud:nth-child(2) {
+            width: 150px;
+            height: 50px;
+            top: 25%;
+            left: -150px;
+            animation-delay: 7s;
+        }
+        
+        .cloud:nth-child(3) {
+            width: 120px;
+            height: 45px;
+            top: 40%;
+            left: -120px;
+            animation-delay: 14s;
+        }
+        
+        @keyframes floatCloud {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(100vw + 200px)); }
+        }
+        
+        .sun {
+            position: fixed;
+            top: 50px;
+            right: 80px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #FFE66D 0%, #FFB347 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 50px rgba(255, 230, 109, 0.6);
+            animation: pulse 4s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .login-container {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .header-title h1 {
+            font-family: 'Arial Black', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #FF6B35;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            text-shadow: 3px 3px 0 rgba(255, 107, 53, 0.15);
+        }
+        
+        .login-card {
+            max-width: 480px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 3rem 2.5rem;
+            border-radius: 35px;
+            box-shadow: 0 20px 60px rgba(255, 159, 102, 0.25);
+            border: 4px solid #FFD4A3;
+        }
+        
+        .cute-mango {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 1rem;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 8px 20px rgba(255, 159, 102, 0.3));
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+        
+        .welcome-message {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .welcome-message h2 {
+            font-size: 1.4rem;
+            color: #FF6B35;
+            font-weight: 800;
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
+        }
+        
+        .welcome-message p {
+            font-size: 0.9rem;
+            color: #FF8C42;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        
+        .divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FFD4A3, transparent);
+            margin: 2rem 0;
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .login-header h3 {
+            font-size: 0.85rem;
+            color: #FF8C42;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: #FF8C42;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 3px solid #FFE8CC;
+            border-radius: 18px;
+            font-size: 1rem;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #FFB347;
+            box-shadow: 0 0 0 4px rgba(255, 179, 71, 0.15);
+        }
+        
+        .error-message {
+            background: #FFE5E5;
+            color: #FF1654;
+            padding: 1rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-align: center;
+            display: none;
+            border: 2px solid #FF1654;
+            margin-bottom: 1.5rem;
+        }
+        
+        .login-button {
+            width: 100%;
+            background: linear-gradient(135deg, #FFB347 0%, #FF9F66 100%);
+            color: white;
+            padding: 1.2rem;
+            border: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 20px rgba(255, 159, 102, 0.3);
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        .login-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 159, 102, 0.4);
+        }
+        
+        .login-button:active {
+            transform: translateY(-1px);
+        }
+        
+        .forgot-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .forgot-link a {
+            color: #FF8C42;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .forgot-link a:hover {
+            color: #FF6B35;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .header-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .login-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .cute-mango {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="sun"></div>
+    
+    <div class="login-container">
+        <div class="header-title">
+            <img src="images/mango.png" alt="Cute Mango" class="cute-mango">
+            <h1>Mango Voicemail</h1>
+        </div>
+        
+        <div class="login-card">
+            <div class="welcome-message">
+                <h2>Tired of 'VOICEMAIL FULL'?<br>Join MANGO VOICEMAIL!</h2>
+                <p>A free internet-based message recording platform offering unlimited storage and instant connectivity.</p>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="login-header">
+                <h3>Please Log In to Access Your Messages</h3>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                
+                <div id="errorMessage" class="error-message"></div>
+                
+                <button type="submit" class="login-button">Log In</button>
+                
+                <div class="forgot-link">
+                    <a href="forgot-password.html">Forgot your Username/Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/puzzle.js"></script>
+</body>
+</html>

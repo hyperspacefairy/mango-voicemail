@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thursday, October 30, 2025 - Mango Voicemail</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="sun"></div>
+    
+    <!-- Back Button -->
+    <a href="voicemail.html" class="back-button">←</a>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="floating-mango">🥭</div>
+            <h1>Mango Voicemail</h1>
+        </header>
+        
+        <!-- Day Title -->
+        <div class="day-title">
+            <h2>Thursday, October 30, 2025</h2>
+        </div>
+        
+        <!-- Messages Count -->
+        <div class="count-card">
+            <span class="icon">📬</span>
+            <div class="number">1</div>
+            <div class="label">Unread Messages</div>
+        </div>
+        
+        <!-- Voice Messages -->
+        <div class="messages-container">
+            <!-- Message 1 -->
+            <div class="voice-message">
+                <div class="message-header">
+                    <div class="message-info">
+                        <h3>Voicemail #1</h3>
+                        <p>Received at 11:22 AM</p>
+                    </div>
+                </div>
+                
+                <div class="audio-player">
+                    <button class="play-button" onclick="togglePlay('audio1', this)">
+                        <div class="play-icon"></div>
+                    </button>
+                    <div class="audio-controls">
+                        <div class="audio-progress" onclick="seekAudio(event, 'audio1')">
+                            <div class="audio-progress-bar" id="progress1"></div>
+                        </div>
+                        <div class="audio-time">
+                            <span id="current1">0:00</span>
+                            <span id="duration1">1:05</span>
+                        </div>
+                    </div>
+                    <audio class="audio-element" id="audio1" ontimeupdate="updateProgress('audio1')">
+    <source src="audio/30oct-0622P-thursday.mp3" type="audio/mpeg">
+    <source src="audio/30oct-0622P-thursday.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+</audio>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
