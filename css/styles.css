@@ -84,9 +84,6 @@
 }
 
 .message-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid #E6D4B3;
@@ -100,6 +97,25 @@
 }
 
 .message-info p {
+    font-size: 0.85rem;
+    color: #A0826D;
+    font-weight: 600;
+}
+
+.message-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.message-time {
+    font-size: 0.85rem;
+    color: #A0826D;
+    font-weight: 600;
+}
+
+.message-phone {
     font-size: 0.85rem;
     color: #A0826D;
     font-weight: 600;
