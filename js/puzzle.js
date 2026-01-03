@@ -40,7 +40,7 @@ if (document.getElementById('securityForm')) {
         // Multiple acceptable answers for each question (all lowercase)
         const acceptableAnswers = {
             answer1: ['picklebean', 'pickle bean'],
-            answer2: ['lincoln high school', 'lincoln highschool', 'lincoln high'],
+            answer2: ['lincoln high school', 'lincoln highschool', 'lincoln high', 'lincoln'],
             answer3: ['keaton']
         };
         
