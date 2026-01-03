@@ -71,7 +71,7 @@ if (document.getElementById('securityForm')) {
         } else {
             // ERROR - show error message
             errorMessage.style.color = '#FF1654';
-            errorMessage.textContent = 'Incorrect answers. Please try again.';
+            errorMessage.textContent = 'Hmm, something is not quite right! Make sure you've chosen all 3 security questions correctly AND entered the right answers.';
             errorMessage.style.display = 'block';
             
             // Clear the inputs
